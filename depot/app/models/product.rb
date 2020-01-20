@@ -7,4 +7,6 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails51 for more book information.
 #---
 class Product < ApplicationRecord
+    validates :title, :description, :image_url, presence: true #validates method
+    #presence checks that each of the named field is present and the contents arent empty
 end
