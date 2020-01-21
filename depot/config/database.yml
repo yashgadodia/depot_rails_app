@@ -20,6 +20,9 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+#this is production branch
+#Each test method gets a freshly initialized table in the test database, loaded from the fixtures we provide. 
+#This is automatically done by the bin/rails test command but can be done separately via bin/rails db:test:prepare.
 production:
   <<: *default
   database: db/production.sqlite3
