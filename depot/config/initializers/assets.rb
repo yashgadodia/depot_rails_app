@@ -1,4 +1,6 @@
 #---
+
+#this directory contains th elist of files that need to be run during the initialization process. 
 # Excerpted from "Agile Web Development with Rails 5.1",
 # published by The Pragmatic Bookshelf.
 # Copyrights apply to this code. It may not be used to create training material,

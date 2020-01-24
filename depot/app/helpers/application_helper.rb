@@ -6,5 +6,8 @@
 # We make no guarantees that this code is fit for any purpose.
 # Visit http://www.pragmaticprogrammer.com/titles/rails51 for more book information.
 #---
+
+#where all helper functions for view reside
+#root helper
 module ApplicationHelper
 end

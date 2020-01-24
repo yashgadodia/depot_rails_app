@@ -3,7 +3,8 @@
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
-#
+# this file holds all the db configuration the application needs here, different configurations can be set for different
+#environments. remember learning with gabriel yesterday about how to see which db we use. sqlite3. 
 default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>

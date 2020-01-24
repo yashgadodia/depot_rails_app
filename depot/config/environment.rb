@@ -7,6 +7,9 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails51 for more book information.
 #---
 # Load the Rails application.
+
+#development environment, production environment, test environment
+
 require_relative 'application'
 
 # Initialize the Rails application.
