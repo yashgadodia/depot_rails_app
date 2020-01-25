@@ -14,10 +14,12 @@
 #the model acts as both a datekeeper and a data store. 
 #---
 class Product < ApplicationRecord
+    #validates() method is the standard rails rails Validator. it checks ome or more model fields against 
+    #one or more conditions. 
     validates :title, :description, :image_url, presence: true #validates method
     #presence checks that each of the named field is present and the contents arent empty
     validates :price, numericality: { greater_than_or_equal_to: 0.01 }
-    validates :title, uniqueness: true
+    validates :title, uniqueness: true #each product has a unique title
     validates :image_url, allow_blank: true, format: {
         with: %r{\.(gif|jpg|png)\Z}i,
         message: 'must be a URL for GIF, JPG or PNG image.'

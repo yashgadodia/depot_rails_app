@@ -1,8 +1,10 @@
-# Read about fixtures at
+# e# Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 #fixture file contains an entry for each row that we want inserted into the database. 
-
+#inside each entry you see an indented list of name-value pairs. As in your config/database.yml file,
+#you must use spaces, not tabs, at the start of each of the data lines. and all lines of the row must have 
+#the same indentation
 one:
   title: MyString
   description: MyText
@@ -18,7 +20,10 @@ two:
 ruby: 
   title: programming ruby 1.9
   description:
-    Ruby is awesome
+    Ruby is the fastest gorwing and most dynamic languages out
+    there. if you need to get working programmes delivered fast, you should add ruby to your toolbox.
   price: 99.99
   image_url: ruby.jpg
   
+# note that the images referenced in image_url do not need to exist for the test to succeed.
+# it doesnt matter as long as there are images in app/assets/images when the test runs 

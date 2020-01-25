@@ -8,6 +8,8 @@
 #---
 require 'test_helper'
 
+#fixtures() directive loads the fixture data corresponsing to the given model name into the corresponding
+#database table before each test method in the test case is run.
 class ProductTest < ActiveSupport::TestCase
   fixtures :products 
   test "product attributes must not be empty" do 
@@ -18,6 +20,9 @@ class ProductTest < ActiveSupport::TestCase
     assert product.errors[:price].any?
     assert product.errors[:image_url].any?
   end
+  #in this code we create a new product and then try setting its price to -1,0 and +1,
+  #validating the product each time. if our model is working, the first two should be invalid. 
+  #and we verify that the error mesasage associated with the price attribute is what we expect. 
   test "product price must be positive" do
     product = Product.new(title: "My Book Title",
                           description: "xyz",
@@ -35,11 +40,12 @@ class ProductTest < ActiveSupport::TestCase
     product.price = 1
     assert product.valid?
   end
+  #validate the image url ends with .gif .jpg, .png
   def new_product(image_url)
-    Product.new( title: "My book title",
-                  description: "wxy",
-                  price: 1,
-                  image_url: image_url)
+    Product.new(title: "My book title",
+                description: "wxy",
+                price: 1,
+                image_url: image_url)
   end
   test "image url" do
     ok = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg
@@ -57,11 +63,21 @@ class ProductTest < ActiveSupport::TestCase
     end
   end     
   test "product is not valid without a unique title" do
-    product = Product.new(title: products(:ruby).title,
+    product = Product.new(title:       products(:ruby).title,
                           description: "yyyy",
-                          price: 1,
-                          image_url: "fred.gif")
+                          price:       1,
+                          image_url:   "fred.gif")
     assert product.invalid?
     assert_equal ["has already been taken"], product.errors[:title]
-  end      
+  end  
+  test "product is not valid without a unique title - i18n" do
+    product = Product.new(title:       products(:ruby).title,
+                          description: "yyy",
+                          price:       1,
+                          image_url:   "fred.gif")
+
+    assert product.invalid?
+    assert_equal [I18n.translate('errors.messages.taken')],
+                 product.errors[:title]
+  end    
 end

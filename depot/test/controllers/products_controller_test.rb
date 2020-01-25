@@ -11,6 +11,7 @@ require 'test_helper'
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @product = products(:one)
+    @title = "The blah blahh #{rand(1000)}" #validation error: title has already been taken
   end
 
   test "should get index" do
@@ -25,9 +26,15 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create product" do
     assert_difference('Product.count') do
-      post products_url, params: { product: { description: @product.description, image_url: @product.image_url, price: @product.price, title: @product.title } }
+      post products_url, params: { 
+        product: { 
+          description: @product.description, 
+          image_url: @product.image_url, 
+          price: @product.price, 
+          title: @title #use that instead of default @product.title that rails generator put into the test
+          } 
+        }
     end
-
     assert_redirected_to product_url(Product.last)
   end
 
@@ -42,7 +49,14 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update product" do
-    patch product_url(@product), params: { product: { description: @product.description, image_url: @product.image_url, price: @product.price, title: @product.title } }
+    patch product_url(@product), params: { 
+      product: { 
+        description: @product.description, 
+        image_url: @product.image_url, 
+        price: @product.price, 
+        title: @title #use that instead of default @product.title that rails generator put into the test
+        } 
+      }
     assert_redirected_to product_url(@product)
   end
 

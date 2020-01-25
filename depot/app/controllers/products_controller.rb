@@ -44,6 +44,8 @@ class ProductsController < ApplicationController
         format.json { render :show, status: :created,
           location: @product }
       else
+        puts @product.errors.full_messages #attempts to create a product in the test are creating an invalid product, which we cant save to the db
+        #adding a call to puts() in the controllers create() method. 
         format.html { render :new }
         format.json { render json: @product.errors,
           status: :unprocessable_entity }
