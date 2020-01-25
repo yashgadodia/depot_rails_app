@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   resources :line_items
   resources :carts
   root 'store#index', as:'store_index' # set the root path: when user navigates to our app (localhost) rails matches root route patter
-  resources :productse
+  resources :products
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

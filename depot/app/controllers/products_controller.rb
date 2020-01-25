@@ -6,6 +6,9 @@
 # We make no guarantees that this code is fit for any purpose.
 # Visit http://www.pragmaticprogrammer.com/titles/rails51 for more book information.
 #---
+
+#controller prchestrate the application. controllers receive events from the outside world, interact with the model,
+#and display the approprate view to the user. 
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 

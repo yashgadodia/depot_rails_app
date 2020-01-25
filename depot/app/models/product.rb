@@ -5,6 +5,13 @@
 # courses, books, articles, and the like. Contact us if you are in doubt.
 # We make no guarantees that this code is fit for any purpose.
 # Visit http://www.pragmaticprogrammer.com/titles/rails51 for more book information.
+
+#product model is responsible for mainitaining the state of the application. Sometimes this state is transient
+#lasting for jsust a couple of interactions with the user. sometimes the state is permanenet,
+#and is stores outside the application, often in a database. 
+
+#a model is more than data, it enforces all the business rules that apply to that data
+#the model acts as both a datekeeper and a data store. 
 #---
 class Product < ApplicationRecord
     validates :title, :description, :image_url, presence: true #validates method

@@ -1,3 +1,6 @@
+<%# responsible for generating the user interface. normally based on data in the model view's
+work is done when the data is displayed. %>
+
 <%= form_with(model: product, local: true) do |form| %>
   <% if product.errors.any? %>
     <div id="error_explanation">
