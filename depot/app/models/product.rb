@@ -14,6 +14,19 @@
 #the model acts as both a datekeeper and a data store. 
 #---
 class Product < ApplicationRecord
+    has_many :line_items
+
+    before_destroy :ensure_not_referenced_by_any_line_item
+    private
+
+    #ensure that there are no line items referencing this product
+    def ensure_not_referenced_by_any_line_item
+        unless line_items.empty?
+            error.add(:base, 'Line Items present')
+            throw :abort
+        end
+    end
+    
     #validates() method is the standard rails rails Validator. it checks ome or more model fields against 
     #one or more conditions. 
     validates :title, :description, :image_url, presence: true #validates method
