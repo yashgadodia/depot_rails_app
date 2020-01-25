@@ -22,7 +22,7 @@ ruby:
   description:
     Ruby is the fastest gorwing and most dynamic languages out
     there. if you need to get working programmes delivered fast, you should add ruby to your toolbox.
-  price: 99.99
+  price: 49.99
   image_url: ruby.jpg
   
 # note that the images referenced in image_url do not need to exist for the test to succeed.
