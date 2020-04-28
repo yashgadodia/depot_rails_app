@@ -1,39 +1,15 @@
-<%# this folder holds the layout for all your view files, which they inherit. files created in here
-are available across all the view files. you can create multiple layouts scoped to parts of the application
-this file will be the default file created automatically, which will act as the layout for actions in 
-ApplicationController and any other controller that inherits from ApplicationController %>
-
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome to yash's awesome store</title>
+    <title>Depot</title>
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all',
-                            'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application',
-                               'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header class="main">
-      <%= image_tag 'logo.svg', alt: 'Test what this does' %>
-      <h1><%= @page_title %></h1>
-    </header>
-    <section class="content">
-      <nav class="side_nav">
-        <ul>
-          <li><a href="/">wificonnectauto</a></li>
-          <li><a href="/questions">Simi qn</a></li>
-          <li><a href="/news">Straits times</a></li>
-          <li><a href="/contact">Callmemaybe</a></li>
-        </ul>
-      </nav>
-			<main class='<%= controller.controller_name %>'>
-        <%= yield %>
-      </main>
-    </section>
+    <%= yield %>
   </body>
 </html>
-
-

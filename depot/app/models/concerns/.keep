@@ -1,1 +1,0 @@
-#concerns are modules that can be accessed across controllers. This is helpful to DRY your code

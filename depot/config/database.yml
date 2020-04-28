@@ -1,10 +1,9 @@
-# SQLite version 3.x
+# SQLite. Versions 3.8.0 and up are supported.
 #   gem install sqlite3
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
-# this file holds all the db configuration the application needs here, different configurations can be set for different
-#environments. remember learning with gabriel yesterday about how to see which db we use. sqlite3. 
+#
 default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -13,7 +12,7 @@ default: &default
 development:
   <<: *default
   database: db/development.sqlite3
-  
+
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
@@ -21,9 +20,6 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-#this is production branch
-#Each test method gets a freshly initialized table in the test database, loaded from the fixtures we provide. 
-#This is automatically done by the bin/rails test command but can be done separately via bin/rails db:test:prepare.
 production:
   <<: *default
   database: db/production.sqlite3
