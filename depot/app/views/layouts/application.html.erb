@@ -1,3 +1,5 @@
+<%# THIS IS THE SEPERATE FILE THAT IS USED TO CREATE A STANDARD PAGE ENVIRONMENT FOR THE ENTIRE APPLICATION %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,6 +12,8 @@
   </head>
 
   <body>
-    <%= yield %>
+    <main class= '<%= controller.controller_name%>'>
+      <%= yield %>
+    </main>
   </body>
 </html>
